@@ -1,0 +1,27 @@
+# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
+# For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#apache-maven-with-a-settings-path
+
+name: clear aws lambda stack
+
+on:
+  workflow_dispatch:
+    inputs:
+      stack-name:
+        description: 'stack name to clear'
+        required: true
+        default: 'some-name'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+    - uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: eu-north-1
+    - run: aws cloudformation delete-stack --stack-name ${{ github.event.inputs.stack-name }}
