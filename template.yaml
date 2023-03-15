@@ -3,16 +3,6 @@ Transform: AWS::Serverless-2016-10-31
 Description: some description
 
 Resources:
-  ## Async Hello world lambda
-  AsyncHelloWorldLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: AsyncHelloWorldLambda
-      MemorySize: 512
-      ## This path to lambda to invoke
-      Handler: org.example.lambda.async.HelloWorldLambda::handler
-      CodeUri: target/lambda.jar
   ## Sync Hello world lambda
   RequestResponseHelloWorldLambda:
     Type: AWS::Serverless::Function
@@ -21,111 +11,8 @@ Resources:
       FunctionName: RequestResponseHelloWorldLambda
       MemorySize: 512
       ## This path to lambda to invoke
-      Handler: org.example.lambda.requestresponse.HelloWorldLambda::handler
-      CodeUri: target/lambda.jar
-  ## Sync lambda with boolean primitives
-  RequestResponseBooleanLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponseBooleanLambda
-      MemorySize: 512
-      ## This path to lambda to invoke
-      Handler: org.example.lambda.requestresponse.PrimitivesLambda::handlerBoolean
-      CodeUri: target/lambda.jar
-  ## Sync lambda with int primitives
-  RequestResponseIntLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponseIntLambda
-      MemorySize: 512
-      ## This path to lambda to invoke
-      Handler: org.example.lambda.requestresponse.PrimitivesLambda::handlerInt
-      CodeUri: target/lambda.jar
-  ## Sync lambda with Integer
-  RequestResponseIntegerLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponseIntegerLambda
-      MemorySize: 512
-      ## This path to lambda to invoke
-      Handler: org.example.lambda.requestresponse.PrimitivesLambda::handlerInteger
-      CodeUri: target/lambda.jar
-  RequestResponseListLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponseListLambda
-      MemorySize: 512
-      ## This path to lambda to invoke
-      Handler: org.example.lambda.requestresponse.ListMapLambda::handlerList
-      CodeUri: target/lambda.jar
-  RequestResponseMapLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponseMapLambda
-      MemorySize: 512
-      ## This path to lambda to invoke
-      Handler: org.example.lambda.requestresponse.ListMapLambda::handlerMap
-      CodeUri: target/lambda.jar
-  RequestResponseListOfMapsLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponseListOfMapsLambda
-      MemorySize: 512
-      ## This path to lambda to invoke
-      Handler: org.example.lambda.requestresponse.ListMapLambda::handlerNestedCollection
-      CodeUri: target/lambda.jar
-  RequestResponsePojoLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponsePojoLambda
-      MemorySize: 512
-      ## This path to lambda to invoke
-      Handler: org.example.pojolambda.PojoLambda::handlerPojo
-      CodeUri: target/lambda.jar
-  RequestResponseStreamLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponseStreamLambda
-      MemorySize: 512
-      ## This path to lambda to invoke
-      Handler: org.example.lambda.requestresponse.StreamLambda::handlerStream
-      CodeUri: target/lambda.jar
-  RequestResponseContextLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponseContextLambda
-      MemorySize: 512
-      ## This path to lambda to invoke
-      Handler: org.example.lambda.requestresponse.ContextLambda::handler
-      CodeUri: target/lambda.jar
-  AsyncEnvVarLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: AsyncEnvVarLambda
-      MemorySize: 512
-      ## This path to lambda to invoke
-      Handler: org.example.lambda.async.EnvVarLambda::handler
-      CodeUri: target/lambda.jar
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1.jar
       Environment:
         Variables:
-          DATABASE_URL: my-database-url
-  ## Lambda with timeout
-  TimeoutLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      FunctionName: TimeoutLambda
-      Timeout: 2 # 2s
-      Runtime: java11
-      MemorySize: 512 # Mb
-      Handler: org.example.lambda.async.TimeoutLambda::handler
-      CodeUri: target/lambda.jar
+          SPRING_CLOUD_FUNCTION_DEFINITION>: "HelloWorldSpringComponent"
