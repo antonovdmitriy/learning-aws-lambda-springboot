@@ -9,25 +9,7 @@ import java.util.Map;
 import java.util.stream.IntStream;
 
 @Component
-public class ListMapLambda {
-
-    /**
-     * to test  [ 1, 2, 3 ]
-     */
-    public List<Integer> handlerList(List<Integer> input) {
-        List<Integer> newList = new ArrayList<>();
-        input.forEach(x -> newList.add(100 + x));
-        return newList;
-    }
-
-    /**
-     * to test { "a" : "x", "b" : "y"}
-     */
-    public Map<String, String> handlerMap(Map<String, String> input) {
-        Map<String, String> newMap = new HashMap<>();
-        input.forEach((k, v) -> newMap.put("New Map -> " + k, v));
-        return newMap;
-    }
+public class ListOfMapLambda {
 
     /**
      * to test
