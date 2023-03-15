@@ -71,7 +71,7 @@ Resources:
       CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
       Environment:
         Variables:
-          SPRING_CLOUD_FUNCTION_DEFINITION: "mapLambda"
+          SPRING_CLOUD_FUNCTION_DEFINITION: "listLambda"
   RequestResponseMapLambdaSpringBoot:
     Type: AWS::Serverless::Function
     Properties:
@@ -82,7 +82,7 @@ Resources:
       CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
       Environment:
         Variables:
-          SPRING_CLOUD_FUNCTION_DEFINITION: "listLambda"
+          SPRING_CLOUD_FUNCTION_DEFINITION: "mapLambda"
   RequestResponseListOfMapsLambdaSpringBoot:
     Type: AWS::Serverless::Function
     Properties:
