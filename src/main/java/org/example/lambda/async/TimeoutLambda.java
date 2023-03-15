@@ -1,8 +1,9 @@
 package org.example.lambda.async;
 
 import com.amazonaws.services.lambda.runtime.Context;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class TimeoutLambda {
 
     /**

@@ -1,9 +1,11 @@
 package org.example.lambda.requestresponse;
 
+import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
+@Component
 public class StreamLambda {
 
     /**

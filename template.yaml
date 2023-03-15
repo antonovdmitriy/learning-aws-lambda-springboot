@@ -3,16 +3,153 @@ Transform: AWS::Serverless-2016-10-31
 Description: some description
 
 Resources:
-  ## Sync Hello world lambda
   RequestResponseHelloWorldLambdaSpringBoot:
     Type: AWS::Serverless::Function
     Properties:
       Runtime: java11
       FunctionName: RequestResponseHelloWorldLambdaSpringBoot
       MemorySize: 512
-      ## This path to lambda to invoke
       Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
       CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
       Environment:
         Variables:
           SPRING_CLOUD_FUNCTION_DEFINITION: "helloWorldSpringComponent"
+  AsyncHelloWorldLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: AsyncHelloWorldLambdaSpringBoot
+      MemorySize: 512
+      ## This path to lambda to invoke
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "asyncHelloWorld"
+  RequestResponseBooleanLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponseBooleanLambdaSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "primitivesLambda"
+  ## Sync lambda with int primitives
+  RequestResponseIntLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponseIntLambdaSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "primitivesLambda"
+  ## Sync lambda with Integer
+  RequestResponseIntegerLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponseIntegerLambdaSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "primitivesLambda"
+  RequestResponseListLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponseListLambdaSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "listMapLambda"
+  RequestResponseMapLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponseMapLambdaSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "listMapLambda"
+  RequestResponseListOfMapsLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponseListOfMapsLambdaSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "listMapLambda"
+  RequestResponsePojoLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponsePojoLambdaSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "pojoLambda"
+  RequestResponseStreamLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponseStreamLambdaSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "streamLambda"
+  RequestResponseContextLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponseContextLambdaSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "contextLambda"
+  AsyncEnvVarLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: AsyncEnvVarLambdaSpringBoot
+      MemorySize: 512
+      ## This path to lambda to invoke
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "envVarLambda"
+          DATABASE_URL: my-database-url
+  ## Lambda with timeout
+  TimeoutLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: TimeoutLambdaSpringBoot
+      Timeout: 2 # 2s
+      Runtime: java11
+      MemorySize: 512 # Mb
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "timeoutLambda"

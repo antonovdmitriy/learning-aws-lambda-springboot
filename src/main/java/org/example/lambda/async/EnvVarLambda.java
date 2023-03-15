@@ -1,5 +1,8 @@
 package org.example.lambda.async;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class EnvVarLambda {
     public void handler(Object event) {
         String databaseUrl = System.getenv("DATABASE_URL");

@@ -1,5 +1,8 @@
 package org.example.lambda.async;
 
+import org.springframework.stereotype.Component;
+
+@Component("asyncHelloWorld")
 public class HelloWorldLambda {
 
     /**

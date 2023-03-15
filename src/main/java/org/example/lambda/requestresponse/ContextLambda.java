@@ -1,10 +1,12 @@
 package org.example.lambda.requestresponse;
 
 import com.amazonaws.services.lambda.runtime.Context;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class ContextLambda {
     public Map<String, Object> handler(Object input, Context context) {
         Map<String, Object> toReturn = new HashMap<>();

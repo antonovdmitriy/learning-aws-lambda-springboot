@@ -1,5 +1,8 @@
 package org.example.lambda.requestresponse;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class PrimitivesLambda {
 
     /**
