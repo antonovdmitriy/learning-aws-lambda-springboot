@@ -15,4 +15,4 @@ Resources:
       CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
       Environment:
         Variables:
-          SPRING_CLOUD_FUNCTION_DEFINITION: "HelloWorldSpringComponent"
+          SPRING_CLOUD_FUNCTION_DEFINITION: "helloWorldSpringComponent"
