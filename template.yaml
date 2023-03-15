@@ -8,7 +8,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Runtime: java11
-      FunctionName: RequestResponseHelloWorldLambda
+      FunctionName: RequestResponseHelloWorldLambdaSpringBoot
       MemorySize: 512
       ## This path to lambda to invoke
       Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
