@@ -12,7 +12,7 @@ Resources:
       MemorySize: 512
       ## This path to lambda to invoke
       Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
-      CodeUri: target/learning-aws-lambdas-springboot-1.0.1.jar
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
       Environment:
         Variables:
           SPRING_CLOUD_FUNCTION_DEFINITION: "HelloWorldSpringComponent"
