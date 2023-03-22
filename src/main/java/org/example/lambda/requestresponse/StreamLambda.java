@@ -4,17 +4,14 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
+
 @Component
 public class StreamLambda {
 
     /**
      * to test use "my simple text"
      */
-    public void handlerStream(InputStream inputStream, OutputStream outputStream) throws IOException {
-        int letter;
-        while ((letter = inputStream.read()) != -1) {
-            outputStream.write(Character.toUpperCase(letter));
-        }
+    public String handlerStream(InputStream inputStream) throws IOException {
+        return new String(inputStream.readAllBytes()).toUpperCase();
     }
 }
