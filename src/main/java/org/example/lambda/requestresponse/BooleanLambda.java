@@ -2,6 +2,9 @@ package org.example.lambda.requestresponse;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Does not work
+ */
 @Component
 public class BooleanLambda {
 
