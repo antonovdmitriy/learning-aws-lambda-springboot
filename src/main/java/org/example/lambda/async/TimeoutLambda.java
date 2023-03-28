@@ -20,13 +20,17 @@ public class TimeoutLambda implements Consumer<Message<String>> {
     public void accept(Message<String> input) {
 
         Context context = input.getHeaders().get(AWS_CONTEXT, Context.class);
-
-        while (true) {
-            try {
-                Thread.sleep(100);
-                logger.info("Context.getRemainingTimeInMillis() : " + context.getRemainingTimeInMillis());
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+        if (context != null) {
+            int count = 0;
+            while (count < 10000) {
+                try {
+                    Thread.sleep(100);
+                    logger.info("Context.getRemainingTimeInMillis() : " + context.getRemainingTimeInMillis());
+                    count++;
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
