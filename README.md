@@ -1,3 +1,5 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=antonovdmitriy_learning-aws-lambda-springboot&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=antonovdmitriy_learning-aws-lambda-springboot)
+
 # Description
 
 The goal of the project is to demonstrate the use of spring boot + Spring Cloud Function to write a lambda 
@@ -48,3 +50,5 @@ aws s3 mb s3://some_unique_name
 ```bash
 aws cloudformation delete-stack --stack-name stack-name
 ```
+
+

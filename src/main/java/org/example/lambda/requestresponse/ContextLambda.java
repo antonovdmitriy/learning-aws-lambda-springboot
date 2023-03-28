@@ -18,20 +18,26 @@ public class ContextLambda {
 
     public Map<String, Object> handler(Message<String> input) {
 
-        Context context = input.getHeaders().get(AWS_CONTEXT, Context.class);
-
         Map<String, Object> toReturn = new HashMap<>();
-        toReturn.put("getMemoryLimitInMB", context.getMemoryLimitInMB() + "");
-        toReturn.put("getFunctionName", context.getFunctionName());
-        toReturn.put("getFunctionVersion", context.getFunctionVersion());
-        toReturn.put("getInvokedFunctionArn", context.getInvokedFunctionArn());
-        toReturn.put("getAwsRequestId", context.getAwsRequestId());
-        toReturn.put("getLogStreamName", context.getLogStreamName());
-        toReturn.put("getLogGroupName", context.getLogGroupName());
-        toReturn.put("getClientContext", context.getClientContext());
-        toReturn.put("getIdentity", context.getIdentity());
-        toReturn.put(REMAINING_TIME_IN_MILLIS,
-                context.getRemainingTimeInMillis() + "");
+
+        if (input != null && input.getHeaders() != null) {
+
+            Context context = input.getHeaders().get(AWS_CONTEXT, Context.class);
+
+            if (context != null) {
+                toReturn.put("getMemoryLimitInMB", context.getMemoryLimitInMB() + "");
+                toReturn.put("getFunctionName", context.getFunctionName());
+                toReturn.put("getFunctionVersion", context.getFunctionVersion());
+                toReturn.put("getInvokedFunctionArn", context.getInvokedFunctionArn());
+                toReturn.put("getAwsRequestId", context.getAwsRequestId());
+                toReturn.put("getLogStreamName", context.getLogStreamName());
+                toReturn.put("getLogGroupName", context.getLogGroupName());
+                toReturn.put("getClientContext", context.getClientContext());
+                toReturn.put("getIdentity", context.getIdentity());
+                toReturn.put(REMAINING_TIME_IN_MILLIS,
+                        context.getRemainingTimeInMillis() + "");
+            }
+        }
         return toReturn;
     }
 }
