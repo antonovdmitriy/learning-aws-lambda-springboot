@@ -9,12 +9,6 @@ import java.util.function.Function;
 @Component
 public class StreamLambda implements Function<InputStream, String> {
 
-    /**
-     * to test use "my simple text"
-//     */
-//    public String handlerStream(InputStream inputStream) throws IOException {
-//        return new String(inputStream.readAllBytes()).toUpperCase();
-//    }
 
     @Override
     public String apply(InputStream inputStream) {
