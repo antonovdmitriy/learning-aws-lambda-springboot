@@ -1,7 +1,6 @@
 # Description
 
-Bunch of lambdas to test  without any framework like Spring or Quarkus
-
+The goal of the project is to demonstrate the use of spring boot + Spring Cloud Function to write a lambda in aws. Also an interesting part in my opinion are examples of writing unit tests for lambdas.
 # To build project
 
 ```shell
@@ -26,7 +25,7 @@ aws s3 mb s3://some_unique_name
 --capabilities CAPABILITY_IAM
 ```
 
-## With Github actions
+## With Github actions pipeline
 
 [see this](.github/workflows/build-and-deploy-to-aws.yml)
 
