@@ -1,6 +1,14 @@
 # Description
 
-The goal of the project is to demonstrate the use of spring boot + Spring Cloud Function to write a lambda in aws. Also an interesting part in my opinion are examples of writing unit tests for lambdas.
+The goal of the project is to demonstrate the use of spring boot + Spring Cloud Function to write a lambda 
+for aws cloud provider. 
+
+An interesting part in my opinion are examples of writing unit tests for lambdas.
+
+While experimenting I writes notes about interesting features [here](https://github.com/antonovdmitriy/it-notes/blob/master/aws/AWS.md#spring-cloud-functions) 
+
+See official documentation about [Spring Cloud Function](https://docs.spring.io/spring-cloud-function/docs/current/reference/html/aws.html#_introduction)
+
 # To build project
 
 ```shell
