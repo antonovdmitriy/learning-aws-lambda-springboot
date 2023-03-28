@@ -3,17 +3,18 @@ Transform: AWS::Serverless-2016-10-31
 Description: some description
 
 Resources:
-  RequestResponseHelloWorldLambdaSpringBoot:
+  AsyncEnvVarLambdaSpringBoot:
     Type: AWS::Serverless::Function
     Properties:
       Runtime: java11
-      FunctionName: RequestResponseHelloWorldLambdaSpringBoot
+      FunctionName: AsyncEnvVarLambdaSpringBoot
       MemorySize: 512
       Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
       CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
       Environment:
         Variables:
-          SPRING_CLOUD_FUNCTION_DEFINITION: "helloWorldSpringComponent"
+          SPRING_CLOUD_FUNCTION_DEFINITION: "envVarLambda"
+          DATABASE_URL: my-database-url
   AsyncHelloWorldLambdaSpringBoot:
     Type: AWS::Serverless::Function
     Properties:
@@ -26,120 +27,6 @@ Resources:
       Environment:
         Variables:
           SPRING_CLOUD_FUNCTION_DEFINITION: "asyncHelloWorld"
-  RequestResponseBooleanLambdaSpringBoot:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponseBooleanLambdaSpringBoot
-      MemorySize: 512
-      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
-      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
-      Environment:
-        Variables:
-          SPRING_CLOUD_FUNCTION_DEFINITION: "booleanLambda"
-  ## Sync lambda with int primitives
-  RequestResponseIntLambdaSpringBoot:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponseIntLambdaSpringBoot
-      MemorySize: 512
-      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
-      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
-      Environment:
-        Variables:
-          SPRING_CLOUD_FUNCTION_DEFINITION: "intLambda"
-  ## Sync lambda with Integer
-  RequestResponseIntegerLambdaSpringBoot:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponseIntegerLambdaSpringBoot
-      MemorySize: 512
-      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
-      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
-      Environment:
-        Variables:
-          SPRING_CLOUD_FUNCTION_DEFINITION: "integerLambda"
-  RequestResponseListLambdaSpringBoot:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponseListLambdaSpringBoot
-      MemorySize: 512
-      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
-      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
-      Environment:
-        Variables:
-          SPRING_CLOUD_FUNCTION_DEFINITION: "listLambda"
-  RequestResponseMapLambdaSpringBoot:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponseMapLambdaSpringBoot
-      MemorySize: 512
-      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
-      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
-      Environment:
-        Variables:
-          SPRING_CLOUD_FUNCTION_DEFINITION: "mapLambda"
-  RequestResponseListOfMapsLambdaSpringBoot:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponseListOfMapsLambdaSpringBoot
-      MemorySize: 512
-      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
-      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
-      Environment:
-        Variables:
-          SPRING_CLOUD_FUNCTION_DEFINITION: "listOfMapLambda"
-  RequestResponsePojoLambdaSpringBoot:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponsePojoLambdaSpringBoot
-      MemorySize: 512
-      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
-      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
-      Environment:
-        Variables:
-          SPRING_CLOUD_FUNCTION_DEFINITION: "pojoLambda"
-  RequestResponseStreamLambdaSpringBoot:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponseStreamLambdaSpringBoot
-      MemorySize: 512
-      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
-      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
-      Environment:
-        Variables:
-          SPRING_CLOUD_FUNCTION_DEFINITION: "streamLambda"
-  RequestResponseContextLambdaSpringBoot:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: RequestResponseContextLambdaSpringBoot
-      MemorySize: 512
-      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
-      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
-      Environment:
-        Variables:
-          SPRING_CLOUD_FUNCTION_DEFINITION: "contextLambda"
-  AsyncEnvVarLambdaSpringBoot:
-    Type: AWS::Serverless::Function
-    Properties:
-      Runtime: java11
-      FunctionName: AsyncEnvVarLambdaSpringBoot
-      MemorySize: 512
-      ## This path to lambda to invoke
-      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
-      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
-      Environment:
-        Variables:
-          SPRING_CLOUD_FUNCTION_DEFINITION: "envVarLambda"
-          DATABASE_URL: my-database-url
   ## Lambda with timeout
   TimeoutLambdaSpringBoot:
     Type: AWS::Serverless::Function
@@ -153,3 +40,103 @@ Resources:
       Environment:
         Variables:
           SPRING_CLOUD_FUNCTION_DEFINITION: "timeoutLambda"
+  RequestResponseContextLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponseContextLambdaSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "contextLambda"
+  RequestResponseHelloWorldLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponseHelloWorldLambdaSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "helloWorldLambda"
+  RequestResponseHelloWorldLambdaWithInjectionSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponseHelloWorldLambdaWithInjectionSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "helloWorldSpringComponent"
+  RequestResponseIntegerLambdaWithBooleanSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponseIntegerLambdaWithBooleanSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "integerLambdaWithBoolean"
+  RequestResponseListLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponseListLambdaSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "listLambda"
+  RequestResponseListOfMapsLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponseListOfMapsLambdaSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "listOfMapLambda"
+  RequestResponseMapLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponseMapLambdaSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "mapLambda"
+  RequestResponseStreamLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponseStreamLambdaSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "streamLambda"
+  RequestResponsePojoLambdaSpringBoot:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      FunctionName: RequestResponsePojoLambdaSpringBoot
+      MemorySize: 512
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      CodeUri: target/learning-aws-lambdas-springboot-1.0.1-aws.jar
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: "pojoLambda"
+
