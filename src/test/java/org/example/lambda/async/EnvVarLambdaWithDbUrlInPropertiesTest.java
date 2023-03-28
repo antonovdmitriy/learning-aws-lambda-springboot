@@ -15,7 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-//@SpringBootTest(properties = {"spring.functional.enabled=true", "database.url=my_db"})
 @FunctionalSpringBootTest(properties = "database.url=my_db")
 class EnvVarLambdaWithDbUrlInPropertiesTest {
 
