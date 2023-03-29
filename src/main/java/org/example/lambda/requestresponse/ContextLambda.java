@@ -1,7 +1,6 @@
 package org.example.lambda.requestresponse;
 
 import com.amazonaws.services.lambda.runtime.Context;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.Message;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +19,7 @@ public class ContextLambda {
 
         Map<String, Object> toReturn = new HashMap<>();
 
-        if (input != null && input.getHeaders() != null) {
+        if (input != null) {
 
             Context context = input.getHeaders().get(AWS_CONTEXT, Context.class);
 

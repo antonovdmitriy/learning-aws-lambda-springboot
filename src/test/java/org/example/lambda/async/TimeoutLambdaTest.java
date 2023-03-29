@@ -9,9 +9,8 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.test.annotation.DirtiesContext;
 
-import java.util.Map;
 import java.util.concurrent.*;
-import java.util.function.Function;
+import java.util.function.Consumer;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
@@ -28,8 +27,8 @@ class TimeoutLambdaTest {
     private FunctionCatalog catalog;
 
     @Test
-    void accept() {
-        Function<Message<String>, Map<String, Object>> function = catalog.lookup(Function.class, "timeoutLambda");
+    void acceptInterrupted() {
+        Consumer<Message<String>> function = catalog.lookup(Consumer.class, "timeoutLambda");
         MessageBuilder<String> messageBuilder = MessageBuilder.withPayload("tadam");
         Context mockContext = mock(Context.class);
         Integer expectedRemainingTime = 50;
@@ -37,7 +36,7 @@ class TimeoutLambdaTest {
         messageBuilder.setHeader(AWS_CONTEXT, mockContext);
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        Future future = executor.submit(() -> function.apply(messageBuilder.build()));
+        Future future = executor.submit(() -> function.accept(messageBuilder.build()));
         boolean interrupted = false;
         try {
             future.get(1, TimeUnit.SECONDS);
@@ -50,5 +49,13 @@ class TimeoutLambdaTest {
             executor.shutdownNow();
         }
         assertTrue(interrupted);
+    }
+
+    @Test
+    void acceptDoNothingIfContextIsNull() {
+        Consumer<Message<String>> function = catalog.lookup(Consumer.class, "timeoutLambda");
+        MessageBuilder<String> messageBuilder = MessageBuilder.withPayload("tadam");
+
+        function.accept(messageBuilder.build());
     }
 }
