@@ -52,4 +52,13 @@ class ContextLambdaTest {
         assertTrue(result.isEmpty());
     }
 
+    @Test
+    void handlerReturnsEmptyMapIfMessageIsNull() {
+        ContextLambda function = new ContextLambda();
+
+        Map<String, Object> result = function.handler(null);
+
+        assertNotNull(result);
+        assertTrue(result.isEmpty());
     }
+}
