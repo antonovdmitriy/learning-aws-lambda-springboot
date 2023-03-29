@@ -29,7 +29,6 @@ public class TimeoutLambda implements Consumer<Message<String>> {
                     count++;
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
-                    throw new RuntimeException(e);
                 }
             }
         }
