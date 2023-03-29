@@ -14,7 +14,7 @@ import static org.springframework.cloud.function.adapter.aws.AWSLambdaUtils.AWS_
 public class TimeoutLambda implements Consumer<Message<String>> {
 
 
-    private final Logger logger = LoggerFactory.getLogger(HelloWorldLambda.class);
+    private final Logger logger = LoggerFactory.getLogger(TimeoutLambda.class);
 
     @Override
     public void accept(Message<String> input) {

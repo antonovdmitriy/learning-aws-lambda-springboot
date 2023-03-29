@@ -40,4 +40,16 @@ class ContextLambdaTest {
         assertNotNull(result);
         assertEquals(expectedRemainingTime.toString(), result.get(REMAINING_TIME_IN_MILLIS));
     }
-}
+
+    @Test
+    void handlerReturnsEmptyMapIfContextIsNull() {
+        Function<Message<String>, Map<String, Object>> function = catalog.lookup(Function.class, "contextLambda");
+        MessageBuilder<String> messageBuilder = MessageBuilder.withPayload("tadam");
+
+        Map<String, Object> result = function.apply(messageBuilder.build());
+
+        assertNotNull(result);
+        assertTrue(result.isEmpty());
+    }
+
+    }
