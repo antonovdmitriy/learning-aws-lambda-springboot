@@ -1,4 +1,14 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=antonovdmitriy_learning-aws-lambda-springboot&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=antonovdmitriy_learning-aws-lambda-springboot)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=antonovdmitriy_learning-aws-lambda-springboot&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=antonovdmitriy_learning-aws-lambda-springboot)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=antonovdmitriy_learning-aws-lambda-springboot&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=antonovdmitriy_learning-aws-lambda-springboot)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=antonovdmitriy_learning-aws-lambda-springboot&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=antonovdmitriy_learning-aws-lambda-springboot)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=antonovdmitriy_learning-aws-lambda-springboot&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=antonovdmitriy_learning-aws-lambda-springboot)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=antonovdmitriy_learning-aws-lambda-springboot&metric=coverage)](https://sonarcloud.io/summary/new_code?id=antonovdmitriy_learning-aws-lambda-springboot)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=antonovdmitriy_learning-aws-lambda-springboot&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=antonovdmitriy_learning-aws-lambda-springboot)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=antonovdmitriy_learning-aws-lambda-springboot&metric=bugs)](https://sonarcloud.io/summary/new_code?id=antonovdmitriy_learning-aws-lambda-springboot)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=antonovdmitriy_learning-aws-lambda-springboot&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=antonovdmitriy_learning-aws-lambda-springboot)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=antonovdmitriy_learning-aws-lambda-springboot&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=antonovdmitriy_learning-aws-lambda-springboot)
+
 
 # Description
 
